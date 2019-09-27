@@ -1,0 +1,67 @@
+.color-cyan{
+    color: #00A99D;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+html, body{
+    background-color:#8a8a8a;
+    color: #383838;
+}
+
+
+main{
+    margin: 15% auto;
+}
+
+h2, h5, p, span{
+    font-weight: 800;
+}
+
+h3{
+    font-size: 2rem;
+}
+h2{
+    font-size: 7.2rem;
+    line-height: 5.5rem;
+}
+
+h1{
+    font-size: 2rem;
+    background-color: #333333;
+    color: #e4e4e4;
+    line-height: 4rem;
+}
+
+h5, div.col-8{
+    font-size: 3.5rem;
+}
+
+h5{
+    display: inline;
+}
+
+a:link{
+    font-weight: bold;
+    font-size: 6rem;
+}
+
+a:visited{
+
+}
+
+a:hover{
+
+}
+
+.col-2{
+    border-top: 3px double #e4e4e4;
+    border-top-width: large;
+    transform: translateY(50%);
+}

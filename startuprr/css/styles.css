@@ -1,3 +1,7 @@
+.color-cyan{
+    color: #00A99D;
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -6,15 +10,66 @@
     font-weight: 500;
 }
 
-html, body{
-    background-color:#8a8a8a;
+.ralaway-bold{
+    font-weight: 800;
 }
-
 
 main{
     margin: 15% auto;
 }
 
-h2, h1, p, span{
+header img{
+    width: 10rem;
+}
+
+ul > li > a{
     font-weight: 800;
+    font-size: 0.8rem;
+}
+
+a:link{
+    color: #383838;
+    border-radius: 5px;
+}
+
+.nav-link:hover{
+    background-color: #00A99D;
+}
+
+/*
+Header padding
+*/
+
+header.container{
+    padding: 0;
+    margin-bottom: 5rem;
+}
+nav.navbar{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+nav > div.col-auto{
+    padding-left: 0;
+}
+
+button.btn{
+    padding-right: 0;
+}
+
+/*
+Continue content formatting
+*/
+
+h1{
+    display: inline;
+}
+
+i{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+h5{
+    opacity: 0.5;
 }
