@@ -1,3 +1,6 @@
+/*
+Base theme
+*/
 .color-cyan{
     color: #00A99D;
 }
@@ -15,8 +18,34 @@
 }
 
 main{
-    margin: 15% auto;
+    margin: 0 auto;
 }
+
+.op-5{
+    opacity: 0.5;
+}
+
+/*
+Links and hovers
+*/
+
+a:link{
+    color: #383838;
+    border-radius: 5px;
+}
+
+a:visited{
+    color: #383838;
+}
+
+.hover:hover{
+    background-color: #00A99D;
+    text-decoration: none;
+}
+
+/*
+Header
+*/
 
 header img{
     width: 10rem;
@@ -25,15 +54,6 @@ header img{
 ul > li > a{
     font-weight: 800;
     font-size: 0.8rem;
-}
-
-a:link{
-    color: #383838;
-    border-radius: 5px;
-}
-
-.nav-link:hover{
-    background-color: #00A99D;
 }
 
 /*
@@ -70,6 +90,13 @@ i{
     padding-right: 1.5rem;
 }
 
-h5{
-    opacity: 0.5;
+.icon-circle{
+    font-size: 3rem;
+    color: #e4e4e4;
+    background: #383838;
+    border-radius: 50%;
+    padding: 30px;
+    margin-bottom: 3rem;
+    margin-top: 5rem;
 }
+
