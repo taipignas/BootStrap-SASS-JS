@@ -13,7 +13,7 @@ Base theme
     font-weight: 500;
 }
 
-.ralaway-bold{
+.raleway-bold{
     font-weight: 800;
 }
 
@@ -78,6 +78,18 @@ button.btn{
 }
 
 /*
+Headline font sizes
+*/
+
+h5{
+    font-size: 1rem;
+}
+
+h5+p{
+    font-size: 0.8rem;
+}
+
+/*
 Continue content formatting
 */
 
@@ -85,7 +97,7 @@ h1{
     display: inline;
 }
 
-i{
+.first-page i,.second-page i{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
@@ -100,3 +112,126 @@ i{
     margin-top: 5rem;
 }
 
+main .fa-key{
+    margin-top: 3rem;
+    font-size: 2rem;
+    color: #e4e4e4;
+    padding: 2%;
+    background-color: #00A99D;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    z-index: 99;
+}
+
+.second-page{
+    color: #e4e4e4;
+    background-color: #383838;
+    width: 100%;
+    transform: translateY(-36px);
+    padding-top: 6rem;
+}
+
+.second-page i{
+    font-size: 3rem;
+}
+
+.second-page img{
+    width: 90%;
+    position: relative;
+    bottom: -100px;
+}
+
+.third-page{
+    transform: translateY(-36px);
+    background-color: #fff;
+    z-index: 101;
+    position: relative;
+}
+
+.third-page > div > div > div:nth-child(2){
+    margin-left: 50px;
+    padding-left: 5px;
+}
+
+/*
+SVG icons for third section
+*/
+svg{
+    position: absolute;
+}
+
+svg:nth-child(1){
+    z-index: 105;
+}
+
+svg:nth-child(2){
+    z-index: 100;
+    height: 80px;
+}
+
+svg + i {
+    position: absolute;
+    z-index: 110;
+    color: #fff;
+    padding-left: 10px;
+}
+
+svg:nth-child(1) path{
+    fill: #383838;
+}
+
+svg:nth-child(1) path:hover{
+    fill: #00A99D;
+}
+
+svg:nth-child(2) path{
+    fill: #00A99D;
+    transform: translateY(20px);
+}
+
+svg:nth-child(2) path:hover{
+    fill: #383838;
+    transform: translateY(20px);
+}
+
+/*
+Fourth page
+*/
+
+.third-page .fa-key{
+    margin-top: 3rem;
+    font-size: 2rem;
+    color: #e4e4e4;
+    padding: 2%;
+    background-color: #00A99D;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    z-index: 150;
+    position: relative;
+}
+
+.fourth-page{
+    display: block;
+    height:700px;
+    z-index: 110;
+    bottom: 72px;
+    background-color: #383838;
+    position: relative;
+}
+
+.fourth-page .div{
+    z-index: 95;
+}
+
+/*
+main .fa-key{
+    margin-top: 3rem;
+    font-size: 2rem;
+    color: #e4e4e4;
+    padding: 2%;
+    background-color: #00A99D;
+    transform: rotate(45deg);
+    border-radius: 5px;
+    z-index: 99;
+}
+*/
