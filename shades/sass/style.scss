@@ -1,0 +1,31 @@
+@import "var";
+.container{
+    margin: 10% auto;
+    width: 60%;
+    header{
+        color:$baseColor;
+        background-color: #000;
+        height: 120px;
+        padding: 5px;
+        h1, h3{
+            text-align: center;
+        }
+    }
+    main{
+        ul{
+            margin: 0;
+            padding: 0;
+            li{
+                display: inline-block;
+                width: 20%;
+                height: 50px;
+                margin-bottom: -5px;
+            }
+            @for $i from 1 through 30 {
+                li:nth-child(#{$i}){
+                    background-color:darken($baseColor, $i*2%);
+                }
+            }
+        }
+    }
+}
