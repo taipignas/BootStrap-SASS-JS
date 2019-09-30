@@ -198,24 +198,24 @@ svg:nth-child(2) path:hover{
 Fourth page
 */
 
-.third-page .fa-key{
-    margin-top: 3rem;
+.fourth-page .fa-suitcase{
+    margin-bottom: 3rem;
     font-size: 2rem;
     color: #e4e4e4;
     padding: 2%;
     background-color: #00A99D;
     transform: rotate(45deg);
     border-radius: 5px;
-    z-index: 150;
     position: relative;
+    top: -39px;
 }
 
 .fourth-page{
     display: block;
-    height:700px;
-    z-index: 110;
+    z-index: 105;
     bottom: 72px;
     background-color: #383838;
+    color: #e4e4e4;
     position: relative;
 }
 
@@ -223,15 +223,10 @@ Fourth page
     z-index: 95;
 }
 
-/*
-main .fa-key{
-    margin-top: 3rem;
-    font-size: 2rem;
-    color: #e4e4e4;
-    padding: 2%;
-    background-color: #00A99D;
-    transform: rotate(45deg);
-    border-radius: 5px;
-    z-index: 99;
+h2{
+    padding: 3rem;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #00A99D;
+    clip-path: circle(56% at 10%)
 }
-*/
