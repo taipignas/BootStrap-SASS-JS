@@ -307,28 +307,132 @@ console.log(results);
 1.5 Sukurti knygos paieškos programą, kuri ieško pagal visas savybes, kurias turi knygos objektas.
 */
 
-console.log('asd');
+console.log('=================================================');
+
+let library2 = {
+    grozine: [
+        {
+            isbn: 9786098233346,
+            price: 7.99,
+            year: 2006,
+            title: "Bloga dukte",
+            pagecount: 250
+        },
+        {
+            isbn: 9786098233391,
+            price: 7.99,
+            year: 2015,
+            title: "Mergina kuria jis pazinojo",
+            pagecount: 315
+        },
+        {
+            isbn: 9786099609324,
+            price: 7.99,
+            year: 2019,
+            title: "Tapk ragana",
+            pagecount: 150
+        },
+        {
+            isbn: 9786094792250,
+            price: 6.99,
+            year: 2007,
+            title: "Sfera",
+            pagecount: 450
+        },
+        {
+            isbn: 9786094792335,
+            price: 9.99,
+            year: 2019,
+            title: "Mes susitinkame cia",
+            pagecount: 500
+        }
+    ],
+    scifi: [
+        {
+            isbn: 9786094273780,
+            price: 7.99,
+            year: 2019,
+            title: "Sunaikinimas",
+            pagecount: 509
+        },
+        {
+            isbn: 9786098233483,
+            price: 12.99,
+            year: 2018,
+            title: "Artemide",
+            pagecount: 199
+        },
+        {
+            isbn: 9786094273872,
+            price: 4.99,
+            year: 2015,
+            title: "Fondas ir imperija",
+            pagecount: 185
+        },
+        {
+            isbn: 9786094273902,
+            price: 7.99,
+            year: 2019,
+            title: "Amzinybes fjordo pranasai",
+            pagecount: 333
+        }
+    ],
+    'skandinaviski detektyvai': [
+        {
+            isbn: 9786094442742,
+            price: 7.99,
+            year: 2019,
+            title: "Bejegiai",
+            pagecount: 172
+        },
+        {
+            isbn: 9786094442940,
+            price: 7.99,
+            year: 2015,
+            title: "Klajunai",
+            pagecount: 172
+        },
+        {
+            isbn: 9786090404386,
+            price: 7.99,
+            year: 2015,
+            title: "Mergina, kuri pakliuvo i voratinkli",
+            pagecount: 356
+        }
+    ]
+}
+
+
 
 let search2 = {
-    isbn:9786090404386,
-    price:7.99,
-    year:2015,
-    title:"Mergina, kuri pakliuvo i voratinkli",
-    pagecount:356
+    price: 7.99
 };
 
-for (let genre in library) {
-    let compare = library['skandinaviski detektyvai'].pop();
-
-    for (let i=0; i<compare.length; i++){
-        if(compare[i]['isbn']==search2['isbn']){
-            for (let key in compare) {
-                console.log(compare[i][key]);
-            }
-        
-        }
+function filterBooks(arr, query){
+    for (let key in query) {
+        arr = arr.filter(item => item[key] == query[key]);
     }
+    return arr;
 }
+
+for (let key in library2){
+console.log(filterBooks(library2[key], search2));
+}
+
+
+
+// for (let zanras in library2) {
+//     let n = library2[zanras].length;
+//     for (let i=0; i< n; i++){
+        
+//         let compare = library2[zanras].pop();
+//         console.log(compare);
+//         // if(compare["price"]===search2["price"]){
+//         //     console.log(compare);
+//         //     searchResults[zanras].push(compare);
+//         // }
+//     }
+// }
 
 
 

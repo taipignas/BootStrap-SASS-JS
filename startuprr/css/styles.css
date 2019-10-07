@@ -235,6 +235,24 @@ h2{
     clip-path: circle(90% at 15%)
 }
 
+.fourth-page > div > div.col-4 {
+    
+}
+
+.fourth-page > div > div > #dummy {
+    margin-top: 100%;
+}
+
+.fourth-page > div > div > p:first-of-type{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid red;
+    border-radius: 50%;
+}
+
 /*
 Fith page
 */
