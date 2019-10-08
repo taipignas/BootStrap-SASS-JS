@@ -402,10 +402,31 @@ let library2 = {
     ]
 }
 
+/*
+Suvedam norima key i nauja array
+*/
 
+function bookTitles(arr, key) {
+    let titles = [];
+    for(let genre in arr){
+        // titles.push({genre:""})
+        for (let i=0; i<arr[genre].length; i++){
+            titles.push(arr[genre][i][key]);
+            // console.log(arr[genre][i]['title']);
+        }
+    }
+    return titles;
+}
+
+console.log("knygu pavadinimai: " + bookTitles(library2, "title").sort());
+
+/*
+custom search
+*/
 
 let search2 = {
-    price: 7.99
+    price: 7.99,
+    year: 2015
 };
 
 function filterBooks(arr, query){
@@ -418,6 +439,18 @@ function filterBooks(arr, query){
 for (let key in library2){
 console.log(filterBooks(library2[key], search2));
 }
+
+function filterBooks2(arr, query) {
+    for(let genre in arr){
+        for (let key in query){
+            arr[genre] = arr[genre].filter(item => item[key] == query[key]);
+        }
+    }
+    return arr;
+}
+
+console.log(filterBooks2(library2, search2));
+
 
 
 
