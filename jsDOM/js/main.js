@@ -1,5 +1,11 @@
 "use strict"
 
+// Užduotis
+// Realizuoto knygų katalogo(pagal ankščiau sukurtą duomenų struktūrą) funkcionalumą DOM'e
+// Estetiškas knygų katalogo atvaizdavimas. Išvedam kategorijas. Paspaudus ant kategorijos - atvaziduojame sąrašo būdų, joje esančias knygas
+// Naujos knygos pridėjimas į katalogą užpildant formą.
+// Knygų katalogo filtras pagal ISBN, pavadinimą, kategoriją (select elementas, kuriame pasirenkame egzistuojančią kategoriją)
+
 let booklist = {
     grozine: [
         {
@@ -11,7 +17,7 @@ let booklist = {
         },
         {
             isbn: 9786098233391,
-            price: 7.99,
+            price: 8.99,
             year: 2015,
             title: "Mergina kuria jis pazinojo",
             pagecount: 315
@@ -71,7 +77,7 @@ let booklist = {
     'SkandinaviskiDetektyvai': [
         {
             isbn: 9786094442742,
-            price: 7.99,
+            price: 8.99,
             year: 2019,
             title: "Bejegiai",
             pagecount: 172
@@ -93,40 +99,147 @@ let booklist = {
     ]
 }
 
+var toggle1 = false;
+var toggle2 = {};
 
 const ul = document.querySelector(".library ul")
 
-const button = document.querySelector('button');
+const button = document.querySelector('.library button');
 button.addEventListener('click', change);
 function change() {
-    for (let key in booklist){
-        let button = document.createElement("button");
-        button.textContent = key;
-        button.addEventListener('click', printlist);
-        let li = document.createElement("li");
-        li.classList.add(key);
-        li.appendChild(button);
-        ul.appendChild(li);
+    if (toggle1 == false) {
+        for (let key in booklist) {
+            let genrebutton = document.createElement("button");
+            genrebutton.textContent = key;
+            genrebutton.setAttribute("id", key);
+            let li = document.createElement("li");
+            li.classList.add(key);
+            genrebutton.addEventListener('click', function () { printlist(this); });
+            li.appendChild(genrebutton);
+            ul.appendChild(li);
+
+            toggle2[key] = false;
+        }
+        toggle1 = !toggle1;
     }
 }
 
-function printlist(){
-    for (let genre in booklist){
-        if (button.className = genre){
-            let liparent = document.querySelector("genre");
-            let ul = document.createElement("ul");
-            
-
-            
-            for (let book in booklist.key){
-                let lichild = document.createElement("li");
-                
-                ul.appendChild(lichild)
+function printlist(btn) {
+    if (toggle2[btn.id] == false) {
+        for (let genre in booklist) {
+            if (btn.id == genre) {
+                let liparent = document.querySelector(("." + genre));
+                let ul = document.createElement("ul");
+                ul.setAttribute("style", "list-style:none;");
+                for (let book in booklist[genre]) {
+                    let lichild = document.createElement("li");
+                    lichild.textContent = "";
+                    for (let key in booklist[genre][book]) {
+                        lichild.textContent += booklist[genre][book][key] + " ";
+                    }
+                    ul.appendChild(lichild)
+                }
+                liparent.appendChild(ul);
             }
-            liparent.appendChild(ul);
+        }
+        toggle2[btn.id] = !toggle2[btn.id];
+    }
+}
+
+const newselect = document.querySelector(".addbook select");
+const newisbn = document.querySelector(".addbook #isbn")
+const newprice = document.querySelector(".addbook #price")
+const newyear = document.querySelector(".addbook #year")
+const newtitle = document.querySelector(".addbook #title")
+const newpagecount = document.querySelector(".addbook #pagecount")
+
+const addbutton = document.querySelector('.addbook button');
+addbutton.addEventListener("click", add);
+function add() {
+    booklist[newselect.value].push({ isbn: newisbn.value, price: newprice.value, year: newyear.value, title: newtitle.value, pagecount: newpagecount.value });
+    newisbn.value = "";
+    newprice.value = "";
+    newyear.value = "";
+    newtitle.value = "";
+    newpagecount.value = "";
+}
+
+const ulparent = document.querySelector('.filter ul');
+const filterbutton = document.querySelector('.filter button');
+filterbutton.addEventListener("click", filter);
+
+
+function filter() {
+    const filterselect = document.querySelector(".filter select");
+    const filterisbn = document.querySelector(".filter #isbn");
+    const filterprice = document.querySelector(".filter #price");
+    const filteryear = document.querySelector(".filter #year");
+    const filtertitle = document.querySelector(".filter #title");
+    const filterpagecount = document.querySelector(".filter #pagecount");
+
+
+    var query = {};
+    if (filterisbn.value) query.isbn = filterisbn.value;
+    if (filterprice.value) query.price = filterprice.value;
+    if (filteryear.value) query.year = filteryear.value;
+    if (filtertitle.value) query.title = filtertitle.value;
+    if (filterpagecount.value) query.pagecount = filterpagecount.value;
+
+    console.log(query);
+
+    let results = filterBooks2(booklist, query, filterselect.value);
+
+    console.log(results);
+
+    for (let genre in results) {
+        if (results[genre].length == 0) console.log("lol tuscia: " + genre);
+        else {
+            let liparent = document.createElement("li");
+            let ulchild = document.createElement("ul");
+            ul.setAttribute("style", "list-style:none;");
+            for (let book in results[genre]) {
+                let lichild = document.createElement("li");
+                lichild.textContent = "";
+                for (let key in results[genre][book]) {
+                    lichild.textContent += results[genre][book][key] + " ";
+                }
+                ulchild.appendChild(lichild);
+            }
+            liparent.appendChild(ulchild);
+            ulparent.appendChild(liparent);
         }
     }
+
+
+
+    filterisbn.value = "";
+    filterprice.value = "";
+    filteryear.value = "";
+    filtertitle.value = "";
+    filterpagecount.value = "";
 }
+
+function filterBooks2(arr, query, select) {
+    if (select == "") {
+        for (let genre in arr) {
+            for (let key in query) {
+                arr[genre] = arr[genre].filter(item => item[key] == query[key]);
+            }
+        }
+    } else {
+        let temp = arr[select];
+        arr = {};
+        console.log(arr[select]);
+        for (let key in query) {
+            temp = temp.filter(item => item[key] == query[key]);
+        }
+        arr[select] = temp;
+        console.log(arr[select]);
+    }
+    return arr;
+}
+
+
 
 
 

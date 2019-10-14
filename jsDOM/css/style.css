@@ -33,7 +33,7 @@ button {
         .container nav li a:hover {
           color: #ff4d4d; }
   .container section {
-    height: 250px;
+    /* height: 250px; */
     background-color: #0085ff;
     color: #fff; }
     .container section ul {
