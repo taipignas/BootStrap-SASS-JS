@@ -62,7 +62,7 @@ function SellBooks (id, books){
 function StockBooks (id, isbn, quantity){
     try{
         console.log("\n");
-        console.log(`is tiekejo:${id} perkama ${quantity} knygu ${isbn}`)
+        console.log(`from supplier ${id} buying ${quantity} books ${isbn}`)
         if(suppliers[id][isbn] < 0) console.log(`Knygu ${isbn} kiekis sandelyje neigiamas!`);
         else if(suppliers[id][isbn] >= quantity){
             suppliers[id][isbn] -= quantity;
@@ -167,5 +167,5 @@ console.log(`pas tiekeja 1 knygu 9786094273902 likutis yra: ${suppliers[1][97860
 console.log(`pas tiekeja 2 knygu 9786094273902 likutis yra: ${suppliers[2][9786094273902]}`);
 
 for (let i=0; i<10; i++){
-    console.log(readers[i]);
+    console.log(readers[i].toString());
 };
