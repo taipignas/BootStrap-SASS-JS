@@ -189,7 +189,6 @@ const ulparent = document.querySelector('.filter ul');
 const filterbutton = document.querySelector('.filter button');
 filterbutton.addEventListener("click", filter);
 
-
 function filter() {
     console.log("booklist");
     console.log(booklist);
