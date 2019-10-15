@@ -6,7 +6,7 @@
 // Naujos knygos pridėjimas į katalogą užpildant formą.
 // Knygų katalogo filtras pagal ISBN, pavadinimą, kategoriją (select elementas, kuriame pasirenkame egzistuojančią kategoriją)
 
-let booklist = {
+var booklist = {
     grozine: [
         {
             isbn: 9786098233346,
@@ -102,6 +102,10 @@ let booklist = {
 let toggle1 = false;
 let toggle2 = {};
 
+/*
+Knygu saraso spausdinimas
+*/
+
 const ul = document.querySelector(".library ul")
 
 const button = document.querySelector('.library button');
@@ -121,13 +125,16 @@ function change() {
             toggle2[key] = false;
         }
         toggle1 = !toggle1;
+    } else {
+        ul.innerHTML = "";
+        toggle1 = !toggle1;
     }
 }
 
 function printlist(btn) {
-    if (toggle2[btn.id] == false) {
-        for (let genre in booklist) {
-            if (btn.id == genre) {
+    for (let genre in booklist) {
+        if (btn.id == genre) {
+            if (toggle2[btn.id] == false) {
                 let liparent = document.querySelector(("." + genre));
                 let ul = document.createElement("ul");
                 ul.setAttribute("style", "list-style:none;");
@@ -140,11 +147,21 @@ function printlist(btn) {
                     ul.appendChild(lichild)
                 }
                 liparent.appendChild(ul);
+                toggle2[btn.id] = !toggle2[btn.id];
+            } else {
+                let ul = document.querySelector("."+genre+' ul');
+                ul.remove();
+                toggle2[btn.id] = !toggle2[btn.id];
             }
         }
-        toggle2[btn.id] = !toggle2[btn.id];
+
     }
+
 }
+
+/*
+Naujos knygos pridejimas
+*/
 
 const newselect = document.querySelector(".addbook select");
 const newisbn = document.querySelector(".addbook #isbn")
@@ -164,13 +181,18 @@ function add() {
     newpagecount.value = "";
 }
 
+/*
+Knygu filtravimas
+*/
+
 const ulparent = document.querySelector('.filter ul');
 const filterbutton = document.querySelector('.filter button');
 filterbutton.addEventListener("click", filter);
 
 
 function filter() {
-
+    console.log("booklist");
+    console.log(booklist);
     const filterselect = document.querySelector(".filter select");
     const filterisbn = document.querySelector(".filter #isbn");
     const filterprice = document.querySelector(".filter #price");
@@ -196,8 +218,7 @@ function filter() {
 
     let results = filterBooks2(booklist, query, filterselect.value);
 
-    console.log(results);
-    
+    ulparent.innerHTML = "";
     for (let genre in results) {
         if (results[genre].length == 0) console.log("lol tuscia: " + genre);
         else {
@@ -226,11 +247,14 @@ function filter() {
 
 function filterBooks2(arr, query, select) {
     if (select == "") {
+        let temp = {};
         for (let genre in arr) {
+            temp[genre] = arr[genre];
             for (let key in query) {
-                arr[genre] = arr[genre].filter(item => item[key] == query[key]);
+                temp[genre] = temp[genre].filter(item => item[key] == query[key]);
             }
         }
+        arr = temp;
     } else {
         let temp = arr[select];
         arr = {};
