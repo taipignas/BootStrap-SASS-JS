@@ -99,8 +99,8 @@ let booklist = {
     ]
 }
 
-var toggle1 = false;
-var toggle2 = {};
+let toggle1 = false;
+let toggle2 = {};
 
 const ul = document.querySelector(".library ul")
 
@@ -170,6 +170,7 @@ filterbutton.addEventListener("click", filter);
 
 
 function filter() {
+
     const filterselect = document.querySelector(".filter select");
     const filterisbn = document.querySelector(".filter #isbn");
     const filterprice = document.querySelector(".filter #price");
@@ -177,8 +178,14 @@ function filter() {
     const filtertitle = document.querySelector(".filter #title");
     const filterpagecount = document.querySelector(".filter #pagecount");
 
+    let query = {};
 
-    var query = {};
+    delete query.isbn;
+    delete query.price;
+    delete query.year;
+    delete query.title;
+    delete query.pagecount;
+
     if (filterisbn.value) query.isbn = filterisbn.value;
     if (filterprice.value) query.price = filterprice.value;
     if (filteryear.value) query.year = filteryear.value;
@@ -190,7 +197,7 @@ function filter() {
     let results = filterBooks2(booklist, query, filterselect.value);
 
     console.log(results);
-
+    
     for (let genre in results) {
         if (results[genre].length == 0) console.log("lol tuscia: " + genre);
         else {
@@ -209,8 +216,6 @@ function filter() {
             ulparent.appendChild(liparent);
         }
     }
-
-
 
     filterisbn.value = "";
     filterprice.value = "";
