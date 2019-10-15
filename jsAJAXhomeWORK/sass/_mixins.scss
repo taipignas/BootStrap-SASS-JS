@@ -1,0 +1,7 @@
+@mixin footer-border($color, $width){
+    border: {
+        color: $color;
+        width: $width;
+        style: dashed;
+    }
+}
