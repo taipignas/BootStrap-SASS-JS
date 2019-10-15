@@ -154,9 +154,7 @@ function printlist(btn) {
                 toggle2[btn.id] = !toggle2[btn.id];
             }
         }
-
     }
-
 }
 
 /*
@@ -201,11 +199,11 @@ function filter() {
 
     let query = {};
 
-    delete query.isbn;
-    delete query.price;
-    delete query.year;
-    delete query.title;
-    delete query.pagecount;
+    // delete query.isbn;
+    // delete query.price;
+    // delete query.year;
+    // delete query.title;
+    // delete query.pagecount;
 
     if (filterisbn.value) query.isbn = filterisbn.value;
     if (filterprice.value) query.price = filterprice.value;
@@ -312,7 +310,6 @@ function filterBooks2(arr, query, select) {
 //     i++;
 // }
 
-
 // const button = document.querySelector('button');
 
 // const count = document.querySelector('.count');
@@ -342,8 +339,6 @@ function filterBooks2(arr, query, select) {
 //     newbutton.textContent = "kurti";
 // }
 
-
-
 // const navigation = document.querySelector("nav ul li");
 // navigation.addEventListener('click', change);
 // function change(){
@@ -366,4 +361,3 @@ function filterBooks2(arr, query, select) {
 // function change(){
 //     h1.textContent = item.value + "  " + price.value * count.value;    
 // }
-
