@@ -42,10 +42,7 @@ function showFotos() {
 function shuffleFotos() {
     fotoUrlArr = shuffle(fotoUrlArr);
     for (let i = 1; i<fotoUrlArr.length+1; i++) {
-        let string = `div img:nth-of-type(${i})`;
-        console.log(string);
-        let img = document.querySelector(string);
-        console.log(img);
+        let img = document.querySelector(`div img:nth-of-type(${i})`);
         img.setAttribute('src',fotoUrlArr[i-1]);
     }
 }
