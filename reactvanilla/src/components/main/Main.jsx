@@ -1,9 +1,22 @@
 import React from 'react';
+import {Switch, Route} from 'react-router-dom';
 import styles from './main.scss';
+import Aside from '../aside/Aside';
+import Description from '../description/Description';
+import Contacts from '../contacts/Contacts';
+import Products from '../products/Products';
+
+// const Main = () = > ()
+
 function Main() {
     return (
-        <main className="super">
-            <h1>Cia yra mainas. cia bus straipsniu</h1>
+        <main className="col-8">
+            <Switch>
+                <Route exact path='/' component={Description}/>
+                <Route path ='/aside' component={Aside}/>
+                <Route path ='/contacts' component={Contacts}/>
+                <Route path ='/products' component={Products}/>
+            </Switch>
         </main>
     );
 }
