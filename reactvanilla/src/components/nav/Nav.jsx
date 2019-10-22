@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
     return (
-        <nav className='col-4'>
-            <ul>
+        <nav className='col-2'>
+            <h3 className="text-center">Nav</h3>
+            <ul className='list-unstyled'>
                 <li>
                     <Link to="/">Pagrindinis</Link>
                 </li>
@@ -17,6 +18,9 @@ function Nav() {
                 </li>
                 <li>
                     <Link to="/products">Produktai</Link>
+                </li>
+                <li>
+                    <Link to="/naujienos">Naujienos</Link>
                 </li>
             </ul>
         </nav>
