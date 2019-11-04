@@ -1,0 +1,61 @@
+.prioHigh::after {
+  width: 50px;
+  background-color: red;
+  content: "\00a0\00a0High\00a0\00a0";
+  padding: 10% 20%;
+  border-radius: 25% / 50%;
+  color: white;
+  
+}
+
+.prioNormal::after {
+  background-color: rgb(69, 182, 235);
+  content: "Normal";
+  padding: 10% 20%;
+  border-radius: 25% / 50%;
+  color: white;
+  width: 3rem;
+}
+
+.prioLow::after {
+  background-color: greenyellow;
+  content: "\00a0\00a0\00a0Low\00a0\00a0\00a0";
+  padding: 10% 20%;
+  border-radius: 25% / 50%;
+  color: white;
+  text-indent: 2rem;
+}
+
+tbody > tr > th:first-child > i{
+  background-color: green;
+  border-radius: 50%;
+  padding: 0.6rem;
+  color: white;
+}
+
+.new::after {
+  content: "New";
+}
+
+.in-progress::after {
+  content: "In progress";
+}
+
+.complete::after {
+  content: "Complete";
+}
+
+td div.row {
+  width: 100%;
+}
+
+.col-9{
+  vertical-align: bottom;
+}
+
+.taskComplete {
+  text-decoration: line-through;
+  i{
+    opacity: 0.2;
+  }
+}

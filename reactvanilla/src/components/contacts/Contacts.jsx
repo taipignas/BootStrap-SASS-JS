@@ -7,7 +7,7 @@ class Contacts extends Component {
            vardas: '',
            pavarde: '',
            elPastas: '',
-           zinute: '',
+           zinute: ''
        }
    }
    handleFormSubmit = e => {
