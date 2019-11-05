@@ -1,3 +1,24 @@
-.row {
-    width: 50px;
+.flex-nowrap{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
+
+.flex-lg-wrap {
+  overflow-x: auto;
+}
+
+.week {
+  background-image: url("../../img/city.jpg");
+  h1 {
+    width: 100%;
+  }
+  .row {
+    width: 100%;
+    
+  }
+  div > div > .col-4{
+        background-color: #fff;
+  }
+}
+
