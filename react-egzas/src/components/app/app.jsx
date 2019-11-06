@@ -13,7 +13,7 @@ class App extends Component {
         this.state = {
             city: 'kaunas',
             day: 0,
-            weather: Kaunas,
+            weather: Kaunas
         }
         this.setDay = this.setDay.bind(this);
         this.changeCity = this.changeCity.bind(this);
@@ -53,7 +53,6 @@ class App extends Component {
 
         let weather = this.state.weather;
         console.log(weather);
-        console.log(this.state.w2);
         console.log(this.state.city)
 
         let days = [];
