@@ -8,6 +8,7 @@ class Search extends Component {
             city: 'kaunas'
         }
     }
+
     render() {
         return (
             <div className='row search'>

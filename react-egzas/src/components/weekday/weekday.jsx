@@ -9,7 +9,7 @@ class Weekday extends Component {
         return (
             <div className='col-4 col-md-3 col-lg border' onClick={() => this.props.setDay(this.props.i)}>
                 <p>{this.props.date}</p>
-                <i class={cloud}></i>
+                <i className={cloud}></i>
                 <p className='mb-0'>{this.props.max}°</p>
                 <p>{this.props.min}°</p>
             </div>

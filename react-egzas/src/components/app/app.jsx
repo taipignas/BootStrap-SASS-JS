@@ -6,19 +6,24 @@ import SelectedDay from '../SelectedDay/SelectedDay';
 import Kaunas from '../../data/kaunas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 class App extends Component {
     constructor() {
         super()
         this.state = {
             city: 'kaunas',
             day: 0,
-            weather: Kaunas
+            weather: Kaunas,
         }
         this.setDay = this.setDay.bind(this);
         this.changeCity = this.changeCity.bind(this);
     }
+
     componentDidMount() {
-        fetch('https://api.meteo.lt/v1/places/' + this.state.city + '/forecasts/long-term')
+        const proxy = 'https://cors-anywhere.herokuapp.com/';
+        const apistart = 'https://api.meteo.lt/v1/places/';
+        const apiend = '/forecasts/long-term';
+        fetch(proxy + apistart + this.state.city + apiend)
             .then(response => response.json())
             .then(data => this.setState({ weather: data }));
 
@@ -36,7 +41,10 @@ class App extends Component {
     changeCity(city) {
         this.setState({ city: city });
         console.log(city);
-        fetch('https://api.meteo.lt/v1/places/' + city + '/forecasts/long-term')
+        const proxy = 'https://cors-anywhere.herokuapp.com/';
+        const apistart = 'https://api.meteo.lt/v1/places/';
+        const apiend = '/forecasts/long-term';
+        fetch(proxy + apistart + city + apiend)
             .then(response => response.json())
             .then(data => this.setState({ weather: data }));
     }
@@ -45,7 +53,7 @@ class App extends Component {
 
         let weather = this.state.weather;
         console.log(weather);
-
+        console.log(this.state.w2);
         console.log(this.state.city)
 
         let days = [];

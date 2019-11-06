@@ -15,7 +15,7 @@ class SelectedDay extends Component {
             hourlyData.push(
                 <div className='col-4 col-lg-2 border'>
                     <p>{time}</p>
-                    <i class={cloud}></i>
+                    <i className={cloud}></i>
                     <p>{hour.airTemperature}°</p>
                 </div>
             )
