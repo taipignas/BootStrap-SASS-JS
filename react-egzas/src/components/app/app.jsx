@@ -108,12 +108,22 @@ class App extends Component {
             maxs.push(maxTemp);
         }
 
+        let clouds = [];
+        for (let day of dayWeather) {
+            let cloud = 0;
+            for (let time of day) {
+                cloud+=time.cloudCover;
+            }
+            clouds.push(cloud/day.length);
+            console.log(cloud/day.length);
+        } 
+
         let weekdayComponent = [];
 
         for (let i in days) {
             weekdayComponent.push(
                 <Weekday
-                    cloud={dayWeather[i][0].cloudCover}
+                    cloud={clouds[i]}
                     date={days[i]}
                     max={maxs[i]}
                     min={mins[i]}

@@ -8,9 +8,9 @@ class SelectedDay extends Component {
             let time = hour.forecastTimeUtc.split(" ")[1].slice(0, 5);
 
             let cloud;
-            if (hour.cloudCover < 33) cloud = 'fas fa-cloud-showers-heavy';
+            if (hour.cloudCover < 33) cloud = 'fas fa-sun';
             else if (hour.cloudCover < 66) cloud = 'fas fa-cloud-sun';
-            else cloud = 'fas fa-sun';
+            else cloud = 'fas fa-cloud-showers-heavy';
 
             hourlyData.push(
                 <div className='col-4 col-lg-2 border'>
@@ -28,7 +28,6 @@ class SelectedDay extends Component {
                     {hourlyData}
                 </div>
             </div>
-
         )
     }
 }
