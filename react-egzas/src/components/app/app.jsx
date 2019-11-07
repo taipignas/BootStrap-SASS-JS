@@ -60,10 +60,8 @@ class App extends Component {
         let nextDay;
 
         // console.log(weather.forecastCreationTimeUtc);
-
         // console.log(fetchDate);
         // console.log(weather.forecastTimestamps[0]);
-
 
         nextDay = fetchDate;
         days.push(nextDay);
@@ -85,41 +83,28 @@ class App extends Component {
             dayWeather.push(today);
         }
 
-        // console.log('==============');
         console.log(dayWeather);
 
         let mins = [];
+        let maxs = [];
+        let clouds = [];
 
         for (let day of dayWeather) {
             let minTemp = day[0].airTemperature;
-            for (let time of day) {
-                if (time.airTemperature < minTemp) minTemp = time.airTemperature
-            }
-            mins.push(minTemp);
-        }
-
-        let maxs = [];
-
-        for (let day of dayWeather) {
             let maxTemp = day[0].airTemperature;
-            for (let time of day) {
-                if (time.airTemperature > maxTemp) maxTemp = time.airTemperature
-            }
-            maxs.push(maxTemp);
-        }
-
-        let clouds = [];
-        for (let day of dayWeather) {
             let cloud = 0;
             for (let time of day) {
                 cloud+=time.cloudCover;
+                if (time.airTemperature < minTemp) minTemp = time.airTemperature;
+                if (time.airTemperature > maxTemp) maxTemp = time.airTemperature;
             }
+            mins.push(minTemp);
+            maxs.push(maxTemp);
             clouds.push(cloud/day.length);
             console.log(cloud/day.length);
-        } 
+        }
 
         let weekdayComponent = [];
-
         for (let i in days) {
             weekdayComponent.push(
                 <Weekday
@@ -133,7 +118,7 @@ class App extends Component {
             )
         }
 
-        console.log(weather.forecastCreationTimeUtc)
+        console.log(weather.forecastCreationTimeUtc);
 
         return (
             <div className="container">
